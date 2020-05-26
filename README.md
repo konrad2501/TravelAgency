@@ -10,7 +10,7 @@ This project is simple Travel Agency created by Konrad Michalski and Adam Kurczy
 	
 ## Technologies
 Project is created with:
-* Java
+* Java with Maven
 * Spring MVC
 * SQLite
 	
