@@ -9,11 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.jws.soap.SOAPBinding;
 import javax.validation.Valid;
 import java.sql.SQLException;
+import java.util.Map;
 
 @Controller
 public class Login {
+
     @GetMapping("Login")
     public String GetLogin(@ModelAttribute("Login") User user){
         return "Login";
@@ -26,6 +29,7 @@ public class Login {
             System.out.println("errors");
             return "Login";
         }
+
         if(query.CheckLogin(user) <= 0)
         {
             return "Login";

@@ -165,7 +165,7 @@
         </div>
         <label id="total"></label>
         <br><br><br>
-        <a href="OrderConfirm" type="submit" id="finished" onclick="finishOrder()">Zamawiam!</a>
+        <a href="Reservation" type="submit" id="finished" onclick="finishOrder()">Zamawiam!</a>
     </div>
 </form>
     </div>
@@ -185,7 +185,7 @@
             var node = document.createElement('div');
             node.innerHTML = '<label>' + city + '</label>' + ' : ' + price + ' zł';
             order.appendChild(node);
-            document.getElementById("total").innerText = "\nKoszt zamówienia: " + totalCost + "zł ";
+            document.getElementById("total").innerText= "\nCałkowity koszt: " + totalCost + "zł ";
             tours.push(city);
             count += 1;
         }

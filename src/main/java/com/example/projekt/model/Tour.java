@@ -1,7 +1,5 @@
 package com.example.projekt.model;
 
-import java.util.Date;
-
 public class Tour {
     private int idTour;
     private String country;

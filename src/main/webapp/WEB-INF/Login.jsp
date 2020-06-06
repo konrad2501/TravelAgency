@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
@@ -30,7 +31,7 @@
 </style>
 <h1>Login</h1>
 <form:form modelAttribute="Login">
-    <div class="login">
+    <p class="login">
         <table border-collapse="2px" align="center"><tr>
         <div class="name">
             <label>Imię: </label>
@@ -43,9 +44,11 @@
             <label>Hasło: </label>
             <form:input type="password" path="password" id="passwordInput"/>
         </div>
-            </tr></table>
+            </tr>
+</table>
         <br>
-        <input type="submit" value="Login">
+        <input type="submit" value="Login" onclick="myFunction()">
+    <div id="text">
     </div>
 </form:form>
 </body>
@@ -53,4 +56,10 @@
 
 <script>
 
+    function myFunction() {
+    document.getElementById("text").innerHTML = "Checking ....";
+    document.getElementById("text").children.style.display = 'block';
+    }
+
 </script>
+

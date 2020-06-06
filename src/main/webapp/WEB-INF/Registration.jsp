@@ -72,9 +72,17 @@
         </tr>
     </table>
     <br><br>
-    <input type="submit" value="Zarejestruj">
-
+    <input type="submit" value="Zarejestruj" onclick="myFunction()">
+    <div id="text" style="margin-top: 10px">
+    </div>
 </form:form>
 </body>
 </html>
+
+<script>
+    function myFunction() {
+        document.getElementById("text").innerHTML = "Analyzes ....";
+        document.getElementById("text").children.style.display = 'block';
+    }
+</script>
 

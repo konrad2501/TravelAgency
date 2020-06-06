@@ -25,7 +25,5 @@ public class User {
     public String getPasswordConfirmation() { return passwordConfirmation; }
     public void setPasswordConfirmation(String passwordConfirmation) { this.passwordConfirmation = passwordConfirmation; }
 
-    //public static boolean isAdmin;
-
     public static boolean IsLogged;
 }
