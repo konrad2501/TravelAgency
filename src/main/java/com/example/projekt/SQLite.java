@@ -8,7 +8,7 @@ public class SQLite {
     {
         try {
             Class.forName("org.sqlite.JDBC");
-            conn = DriverManager.getConnection("jdbc:sqlite:/Users/konradmichalski/Desktop/TravelAgencyJava/database.db");
+            conn = DriverManager.getConnection("jdbc:sqlite:/Users/konradmichalski/Desktop/studies/TravelAgencyJava/database.db");
             System.out.println("Connected");
             return conn;
         }
