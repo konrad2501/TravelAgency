@@ -85,7 +85,6 @@
         removedReservation.push(idTour);
         var i = button.id;
         document.getElementById(i).hidden = true;
-        //document.getElementById(i).style.visibility = "hidden";
     }
 
     function finish() {
