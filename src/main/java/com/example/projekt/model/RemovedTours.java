@@ -2,6 +2,7 @@ package com.example.projekt.model;
 
 import java.util.List;
 
+// Klasa zawiera pola dotyczące usuniętych wycieczek
 public class RemovedTours {
 
     private List<String> removedReservation;

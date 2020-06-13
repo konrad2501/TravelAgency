@@ -1,5 +1,6 @@
 package com.example.projekt.model;
 
+// Klasa zawiera pola dotyczące użytkownika
 public class User {
     public static int Id;
 

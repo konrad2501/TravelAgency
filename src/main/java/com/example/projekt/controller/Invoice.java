@@ -14,10 +14,12 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
+// Klasa zawiera obsługę ostatecznego zamówienia
 public class Invoice {
 
     @GetMapping("Invoice")
-    public String GetSelectedTours(@ModelAttribute("Order") Order order, @ModelAttribute("Tour") Tour tour, @ModelAttribute("User")
+    // metoda wykonuje GET do przekazania adresu strony, przekazuje wszystkie dane dotyczące użytkownika, aktualnego zamówienia, wybranych wycieczek
+    public String doGetInvoice(@ModelAttribute("Order") Order order, @ModelAttribute("Tour") Tour tour, @ModelAttribute("User")
             User user, Map<String, Object> map) throws SQLException, InterruptedException {
         SQLiteDB query = new SQLiteDB();
         Thread.sleep(400);

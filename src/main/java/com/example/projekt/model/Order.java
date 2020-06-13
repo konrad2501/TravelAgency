@@ -2,6 +2,7 @@ package com.example.projekt.model;
 
 import java.util.List;
 
+// Klasa zawiera pola dotyczące zamówień
 public class Order {
     public static int Id;
     private User user;

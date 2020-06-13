@@ -18,7 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+// Klasa zawiera wszystkie funkcjonalności, dotyczące bazy
 public class SQLiteDB {
+    // Metoda przyjmuje obiekt klasy User i wykonuje zapytanie do bazy w celu stworzenia nowego użytkownika
     public void AddNewUser(User user) throws SQLException {
         SQLite connection = new SQLite();
         try (Connection conn = connection.DbConnect()) {
@@ -37,6 +39,7 @@ public class SQLiteDB {
         }
     }
 
+    // Metoda przyjmuje obiekt klasy User i sprawdza czy przekazany użytkownik istnieje w bazie
     public boolean CheckIfUserExist(User user) throws SQLException {
         SQLite connection = new SQLite();
         Connection conn = connection.DbConnect();
@@ -54,6 +57,7 @@ public class SQLiteDB {
         return i > 0;
     }
 
+    // Metoda przyjmuje obiekt klasy User i sprawdza czy podane dane przy logowaniu zgadzają się z tymi w bazie danych
     public int CheckLogin (User user) throws SQLException {
         SQLite connection = new SQLite();
         Connection conn = connection.DbConnect();
@@ -74,6 +78,7 @@ public class SQLiteDB {
     }
 
 
+    // Metoda zwraca wszystkie wycieczki znajdujące się w bazie
     public List<Tour> GetAllTours() throws SQLException {
         List<Tour> tours = new ArrayList<>();
         SQLite connection = new SQLite();
@@ -98,6 +103,7 @@ public class SQLiteDB {
         return tours;
     }
 
+    // Metoda dodająca zamówienie do bazy danych dla zalogowanego użytkownika
     public int NewOrder(User user) throws SQLException
     {
         SQLite connection = new SQLite();
@@ -125,6 +131,7 @@ public class SQLiteDB {
     return orderId;
     }
 
+    // Metoda przyjmuje nazwę miasta i sprawdza czy istnieje w bazie
     public Tour FindTourByName(String city) throws SQLException
     {
         SQLite connection = new SQLite();
@@ -148,6 +155,7 @@ public class SQLiteDB {
         return tour;
     }
 
+    // Metoda przyjmuje id wycieczki i wykonuje zapytanie do bazy w celu dodania nowego wiersza Rezerwacji dla podanego id
     public void AddOrderTour(int tourId) throws SQLException
     {
         SQLite connection = new SQLite();
@@ -160,6 +168,7 @@ public class SQLiteDB {
         connection.DbDisconnect();
     }
 
+    // Metoda zwracająca dane dotyczące aktualnego zamówienia, wykorzystująca do tego zmienną statyczną id zamówienia
     public List<Tour> GetReservationTours() throws SQLException
     {
         SQLite connection = new SQLite();
@@ -181,6 +190,7 @@ public class SQLiteDB {
         return tours;
     }
 
+    // Metoda przyjmuje obiekt klasy RemovedTours i aktualizuje dane dotyczące aktualnie zalogowanego użytkownika, sumuje cenę wszystkich jego zamówień oraz aktualizuje cenę tego zamówienia w tabeli Orders
     public void AddData(RemovedTours data) throws SQLException {
         SQLite connection = new SQLite();
         Connection conn = connection.DbConnect();
@@ -206,6 +216,7 @@ public class SQLiteDB {
         connection.DbDisconnect();
     }
 
+    // Metoda przyjmuje id wycieczki i wykonuje zapytanie do bazy usuwając wycieczki z których zrezygnował użytkownik w czasie składania zamówienia
     public void RemoveTourFromReservation(int TourId) throws SQLException
     {
         SQLite connection = new SQLite();
@@ -217,6 +228,7 @@ public class SQLiteDB {
         connection.DbDisconnect();
     }
 
+    // Metoda zwracająca wszystkie dane wycieczek dla podanego numeru id_orders w tabeli Reservations
     public List<Tour> CheckSelectedTours() throws SQLException
     {
         SQLite connection = new SQLite();
@@ -242,6 +254,7 @@ public class SQLiteDB {
         return tours;
     }
 
+    // Metoda zwracająca imię i nazwisko użytkownika
     public User GetUserNameAndSurname() throws SQLException
     {
         SQLite connection = new SQLite();
@@ -261,6 +274,7 @@ public class SQLiteDB {
         return user;
     }
 
+    // Metoda zwracająca dane dotyczące aktualnego zamówienia
     public Order GetOrdersData() throws SQLException
     {
         SQLite connection = new SQLite();

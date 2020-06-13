@@ -12,9 +12,11 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
+// Klasa zawiera obsługę początkowo wybranego zamówienia
 public class ReservationTour {
     @GetMapping("Reservation")
-    public String GetReservation(@ModelAttribute("Tour") Tour tour,
+    // metoda wykonuje GET do przekazania adresu strony, przekazuje dane użytkownika i wybrane wycieczki dla aktualnego zamówienia
+    public String doGetReservation(@ModelAttribute("Tour") Tour tour,
                                  @ModelAttribute User user,
                                   Map<String, Object> map) throws SQLException, InterruptedException {
         SQLiteDB query = new SQLiteDB();
@@ -27,21 +29,15 @@ public class ReservationTour {
 
     @RequestMapping(method = RequestMethod.POST, value = "Reservation")
     @ResponseBody
-    public void AddConfirmOrderRest(@RequestBody RemovedTours obj)
+    // metoda wykonuje POST do przesłania danych, usuwa wycieczki z których zrezygnował użytkownik
+    public void doPostReservation(@RequestBody RemovedTours obj)
             throws SQLException
     {
         SQLiteDB query = new SQLiteDB();
-        if(obj.getRemovedReservation().isEmpty())
-        {
-            System.out.println("Lista jest pusta");
-        }
-        else
-        {
             for(String id : obj.getRemovedReservation())
             {
                 query.RemoveTourFromReservation(Integer.parseInt(id));
             }
-        }
         query.AddData(obj);
     }
 }

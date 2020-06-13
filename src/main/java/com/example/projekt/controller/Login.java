@@ -9,21 +9,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.jws.soap.SOAPBinding;
 import javax.validation.Valid;
 import java.sql.SQLException;
-import java.util.Map;
 
 @Controller
+// Klasa zawiera obsługę logowania użytkownika
 public class Login {
 
     @GetMapping("Login")
-    public String GetLogin(@ModelAttribute("Login") User user){
+    // metoda wykonuje GET do przekazania adresu strony
+    public String doGetLogin(@ModelAttribute("Login") User user){
         return "Login";
     }
 
     @PostMapping("Login")
-    public String AddLogin(@Valid @ModelAttribute ("Login") User user, BindingResult result) throws SQLException {
+    // metoda wykonuje POST do przesłania danych, jeśli się powiedzie ustawiana flaga IsLogged
+    public String doPostLogin(@Valid @ModelAttribute ("Login") User user, BindingResult result) throws SQLException {
         SQLiteDB query = new SQLiteDB();
         if(result.hasErrors()) {
             System.out.println("errors");
@@ -39,6 +40,4 @@ public class Login {
         Order.Id = query.NewOrder(user);
         return "redirect:Menu";
     }
-
-
 }

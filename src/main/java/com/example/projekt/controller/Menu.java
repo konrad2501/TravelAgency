@@ -13,10 +13,12 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Controller
+// Klasa zawiera obsługę menu
 public class Menu {
 
     @GetMapping("Menu")
-    public String GetMenu(@ModelAttribute("Order") Order order, @ModelAttribute("Tour") Tour tour, @ModelAttribute("User")
+    // metoda wykonuje GET do przekazania adresu strony, przekazuje podstawowe dane dotyczące użytkownika, wycieczek
+    public String doGetMenu(@ModelAttribute("Order") Order order, @ModelAttribute("Tour") Tour tour, @ModelAttribute("User")
                           User user, Map<String, Object> map) throws SQLException{
         SQLiteDB query = new SQLiteDB();
         List<Tour> tours = query.GetAllTours();
@@ -30,7 +32,8 @@ public class Menu {
 
     @RequestMapping(method = RequestMethod.POST, value = "Menu")
     @ResponseBody
-    public void AddMenu(@RequestBody List<String> tours) throws SQLException{
+    // metoda wykonuje POST do przesłania danych, dodaje wybrane wycieczki przez użytkownika do tabeli aktualnego zamówienia
+    public void doPostMenu(@RequestBody List<String> tours) throws SQLException{
         SQLiteDB query = new SQLiteDB();
         for(String city: tours)
         {

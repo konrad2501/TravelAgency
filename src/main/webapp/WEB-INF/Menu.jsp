@@ -176,18 +176,25 @@
     var totalCost = 0;
     var tours = [];
     var count = 0 ;
-    function tourClick(button, price)
-    {
-        if ( count < 10 ) {
+    function tourClick(button, price) {
+        if (count < 10) {
             var city = button.id;
             totalCost += price;
             var order = document.getElementById("order");
             var node = document.createElement('div');
             node.innerHTML = '<label>' + city + '</label>' + ' : ' + price + ' zł';
             order.appendChild(node);
-            document.getElementById("total").innerText= "\nCałkowity koszt: " + totalCost + "zł ";
+            document.getElementById("total").innerText = "\nCałkowity koszt: " + totalCost + "zł ";
             tours.push(city);
             count += 1;
+        } else {
+            var order = document.getElementById("order");
+            var node = document.createElement('div');
+            node.innerHTML = 'Przekroczono limit!';
+            if(count == 10){
+                order.appendChild(node);
+                count += 1;
+            }
         }
     }
 
@@ -353,5 +360,4 @@
         }).done(function (result) {
         });
     }
-
 </script>

@@ -1,5 +1,6 @@
 package com.example.projekt.model;
 
+// Klasa zawiera pola dotyczące wycieczek
 public class Tour {
     private int idTour;
     private String country;
